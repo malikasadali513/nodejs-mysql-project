@@ -15,20 +15,20 @@
   <body>
     <div class="container">
       <h3>Books List</h3>
-     
-  <% rows.map(function(eachData) { %>
-    <div class="card-deck">
-    <div class="card mb-3">
-      <div class="card-body">
-        <h5 class="card-title">Book Title : <%- eachData.title %></h5>
-        <h6 class="card-subtitle mb-2 text-muted">Author Name: <%- eachData.name %></h6>
-        <p class="card-text">ISBN :<%- eachData.isbn %></p>
+
+      <% rows.map(function(eachData) { %>
+      <div class="card-deck">
+        <div class="card mb-3">
+          <div class="card-body">
+            <h5 class="card-title">Book Title : <%- eachData.title %></h5>
+            <h6 class="card-subtitle mb-2 text-muted">
+              Author Name: <%- eachData.name %>
+            </h6>
+            <p class="card-text">ISBN :<%- eachData.isbn %></p>
+          </div>
+        </div>
+        <% }); %>
       </div>
     </div>
-  <% }); %>
-</div>
-
-    </div>
-    
   </body>
 </html>
