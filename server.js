@@ -2,21 +2,14 @@ const express = require("express"); //express package initiated
 const app = express(); // express instance has been created and will be access by app variable
 // const cors = require("cors");
 const dotenv = require("dotenv");
-const multer = require("multer");
+
 
 
 var bodyParser = require("body-parser");
 
 dotenv.config();
 
-// multer
 
-const storage = multer.diskStorage({
-  destination: "./upload/images",
-  filename: (req, file, cb)=>{
-    return cb(null, `${filename}`)
-  }
-})
 
 app.set("view engine", "ejs");
 
@@ -60,10 +53,12 @@ app.get("/data", (req, res)=>{
             console.log(err);
         }
         else{
+          res.locals.message = 'Data submitted successfully';
             res.render('read', {rows: rows});
         }
     });
 });
+
 app.listen(process.env.PORT || 4000, (error) => {
   if (error) throw error;
   console.log(` server is working at http://localhost:${process.env.PORT}`);
