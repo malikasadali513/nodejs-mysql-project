@@ -11,36 +11,49 @@
       crossorigin="anonymous"
     />
     <title>Read</title>
+    <style>
+      .custom-img-class {
+        height: 200px;
+        width: 200px;
+      }
+      .custom-img-class:hover {
+        transform: translateY(-10px);
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+      }
+    </style>
   </head>
   <body>
+    <div class="bg-dark text-white text-center">
+      <div class="container-fluid">
+        <h3 class="py-4">Books List</h3>
+      </div>
+    </div>
     <div class="container">
-      <h3>Books List</h3>
       <% if (message) { %>
-        
-        <div class="alert alert-success" role="alert">
+        <div class="alert alert-success alert-dismissible fade show" role="alert">
+          <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
           <%- message %>
         </div>
-        <% } %>
-      
-      <% rows.map(function(eachData) { %>
-      <div class="card-deck">
-        <div class="row">
-          <div class="col-md-5">
-            <div class="card mb-3">
-              <div class="card-body text-center"> 
-                <h5 class="card-title">Book Title : <%- eachData.title %></h5>
-                <h6 class="card-subtitle mb-2 text-muted">
-                  Author Name: <%- eachData.name %>
-                </h6>
-                <p class="card-text">ISBN :<%- eachData.isbn %></p>
-                <img src="/images/<%= eachData.image %>">
-              </div>
+      <% } %>
+      <div class="row">
+        <% rows.map(function(eachData) { %>
+        <div class="col-md-4">
+          <div class="card mb-3 shadow">
+            <div class="card-body text-center">
+              <img
+                class="img-fluid custom-img-class my-3"
+                src="/images/<%= eachData.image %>"
+              />
+              <h5 class="card-title">Book Title : <%- eachData.title %></h5>
+              <h6 class="card-subtitle mb-2 text-muted">
+                Author Name: <%- eachData.name %>
+              </h6>
+              <p class="card-text">ISBN :<%- eachData.isbn %></p>
             </div>
           </div>
         </div>
         <% }); %>
       </div>
     </div>
-    
   </body>
 </html>
