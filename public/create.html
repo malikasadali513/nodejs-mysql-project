@@ -16,7 +16,7 @@
   <body>
     <div class="container my-2">
       <h1 class="h1 text-center">Fill the data</h1>
-      <form id="myForm" action="http://localhost:3000/create" method="post">
+      <form id="myForm" action="http://localhost:3000/create" method="post"  enctype="multipart/form-data">
         <div class="mb-3">
           <label class="form-label">Book Title:</label>
           <input type="text" class="form-control" name="title" />
@@ -28,10 +28,10 @@
             <label class="form-label">ISBN</label>
             <input type="number" class="form-control" name="isbn" />
           </div>
-          <!-- <div class="mb-3">
+          <div class="mb-3">
             <label class="form-label">Cover-image</label>
             <input type="file" class="form-control" name="image" />
-          </div> -->
+          </div>
 
         <button type="submit" class="btn btn-primary">Submit</button>
       </form>
